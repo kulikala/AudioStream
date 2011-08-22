@@ -1,0 +1,11 @@
+{
+	"name": "AudioStream",
+	"description": "Streaming audio using Firefox Audio Data API + Node.js + WebSocket + Redis Pub/Sub",
+	"version": "0.0.1",
+	"dependencies": {
+		"express": "",
+		"opts": "",
+		"redis": "",
+		"websocket": ""
+	}
+}

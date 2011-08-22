@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>AudioStream</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="audiostream.js"></script>
+	<script type="text/javascript" src="client.js"></script>
+	<style type="text/css">
+		div.Status {
+			color: #660000;
+		}
+	</style>
+</head>
+<body>
+	<div id="Wrapper">
+		<h1>AudioStream</h1>
+
+		<section class="Connect">
+			<h2>Establish WebSocket connection</h2>
+			<input type="text"/>
+			<button>Connect</button>
+			<div class="Status"></div>
+		</section>
+
+		<section class="LoadAndPlay">
+			<h2>Load audio file and play sound</h2>
+			<input type="text" value="http://videos-origin.mozilla.org/serv/blizzard/audio-slideshow/Revolve.ogg"/>
+			<button class="Play">Load & Play</button>
+			<button class="Stop">Stop</button>
+			<div class="Status"></div>
+		</section>
+
+		<section class="ReceiveAndPlay">
+			<h2>Receive audio data and play</h2>
+			<button class="Start">Start receiving</button>
+			<button class="Stop">Stop</button>
+			<div class="Status"></div>
+		</section>
+	</div>
+</body>
+</html>
