@@ -6,34 +6,34 @@ This is an experimental application runs with Firefox, Node.js, and Redis.
 
 ## Overall architecture
 
-  **client <Firefox>**
-          | *Play audio*
-    (WebSocket)
-          |
-  **HTTP server <Node.js>**
-          | *Publish*
-    (DB Connection)
-          |
-  **Pub/Sub server <Redis>**
-          |
-    (DB Connection)
-          |
-  **HTTP server 2 <Node.js>**
-          | *Subscribe*
-    (WebSocket)
-          | *Push*
-  **client 2 <Firefox>**
-            *Listen audio*
+	client <Firefox>
+	      | - Play audio
+	  (WebSocket)
+	      |
+	HTTP server <Node.js>
+	      | - Publish
+	  (DB Connection)
+	      |
+	Pub/Sub server <Redis>
+	      |
+	  (DB Connection)
+	      | - Subscribe
+	HTTP server 2 <Node.js>
+	      |
+	  (WebSocket)
+	      | - Push
+	client 2 <Firefox>
+	        - Listen audio
 
 
 ## Requirements
 
 * Node.js v0.4.11
 * npm
-** [express](http://expressjs.com/)
-** [opts](https://bitbucket.org/mazzarelli/js-opts/wiki/Home)
-** [redis](https://raw.github.com/mranney/node_redis/)
-** [websocket](https://github.com/Worlize/WebSocket-Node)
+  * [express](http://expressjs.com/)
+  * [opts](https://bitbucket.org/mazzarelli/js-opts/wiki/Home)
+  * [redis](https://raw.github.com/mranney/node_redis/)
+  * [websocket](https://github.com/Worlize/WebSocket-Node)
 * Redis v2.2.5
 
 
@@ -47,36 +47,36 @@ This is an experimental application runs with Firefox, Node.js, and Redis.
 
 Install Node.js first.
 
-  $ node -v
-  v0.4.11
+	$ node -v
+	v0.4.11
 
 Install required npm libraries:
 
-  $ npm -v
-  1.0.26
-  $ npm install express opts redis websocket
+	$ npm -v
+	1.0.26
+	$ npm install express opts redis websocket
 
 Install Redis.
 
-  $ redis-server -v
-  Redis server version 2.2.5 (00000000:0)
+	$ redis-server -v
+	Redis server version 2.2.5 (00000000:0)
 
 Start Redis server:
 
-  $ redis-server
+	$ redis-server
 
 With your configured `redis.conf`, start Redis server with:
 
-  $ redis-server /opt/local/etc/redis.conf
+	$ redis-server /opt/local/etc/redis.conf
 
 Start Node.js with `server.js`
 
-  $ sudo node server.js
+	$ sudo node server.js
 
 By default, the program listens the port 80.
 You can specify the port number to which the HTTP server and WebSocket server listen:
 
-  $ node server.js -p 8080
+	$ node server.js -p 8080
 
 Open browser(s) and access the server(s).
 Press "Connect" button to establish WebSocket connection.
@@ -90,12 +90,12 @@ You can receive the audio data, as long as the background server is connected to
 
 If you own several computers and they're beside you, you can try multiple Node.js instances:
 
-  $ node server.js -p 8000
-  $ node server.js -p 8001
-  $ node server.js -p 8002
-          .
-          .
-          .
+	$ node server.js -p 8000
+	$ node server.js -p 8001
+	$ node server.js -p 8002
+	    .
+	    .
+	    .
 
 Then, access each Node.js instances by browsers, and establish WebSocket connections.
 Press "Start receiving" buttons except one browser.
